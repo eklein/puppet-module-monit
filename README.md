@@ -36,10 +36,19 @@ the module with this special syntax:
                    interval => 30 }
 
 Setting up monitoring of processes is done with the `monit::site` resource.
+
+This requires the use of a pidfile OR a string matching the running command!
+
 Note that the name needs to be the same as an init script in `/etc/init.d`:
 
-    monit::monitor { "ssh":
-      pidfile => "/var/run/sshd.pid",
+    monit::monitor { "sshd":
+      pidfile => "/var/run/sshd.pid"
+    }
+
+OR
+
+    monit::monitor { "sshd":
+      matching => "/usr/sbin/sshd"
     }
 
 You can specify a IP port to check if you're running a network process:
@@ -49,7 +58,7 @@ You can specify a IP port to check if you're running a network process:
       ip_port => 22,
     }
 
-Alternatively you can specify a Unix socket to check:
+Additionally, you can specify a Unix socket to check:
 
     monit::monitor { "gunicorn-blog":
       pidfile => "/var/run/gunicorn/blog.pid",

@@ -1,4 +1,5 @@
-define monit::monitor($pidfile,
+define monit::monitor($pidfile="",
+                      $matching="",
                       $ensure=present,
                       $ip_port=0,
                       $socket="",
