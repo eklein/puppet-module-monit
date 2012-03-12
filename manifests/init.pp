@@ -1,4 +1,4 @@
-class monit($ensure=present, $admin="", $interval=60) {
+class monit($ensure=present, $admin="", $mailserver="", $interval=60) {
   $is_present = $ensure == "present"
 
   package { "monit":
