@@ -46,7 +46,7 @@ set daemon  <%= interval %> # check services at N-second intervals
 ## specified using a comma separator. By default Monit uses port 25 - it is
 ## possible to override this with the PORT option.
 #
-<%= if mailserver.length > 0 %>
+<%= if mailserver.any? %>
 set mailserver <%= mailserver %>
 <%= end %>
 # set mailserver mail.bar.baz,               # primary mailserver
