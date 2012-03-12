@@ -4,9 +4,7 @@ Puppet Monit Module
 Module for configuring Monit and and setting up monitoring
 of running processes.
 
-Tested on Debian GNU/Linux 6.0 Squeeze. Patches for other
-operating systems welcome.
-
+Supports CentOS
 
 Installation
 ------------
@@ -14,7 +12,7 @@ Installation
 Clone this repo to a monit directory under your Puppet
 modules directory:
 
-    git clone git://github.com/uggedal/puppet-module-monit.git monit
+    git clone git://github.com/eklein/puppet-module-monit.git monit
 
 If you don't have a Puppet Master you can create a manifest file
 based on the notes below and run Puppet in stand-alone mode
@@ -33,7 +31,9 @@ To install and configure Monit, include the module:
 You can override defaults in the Monit config by including
 the module with this special syntax:
 
-    class { monit: admin => "eivind@uggedal.com", interval => 30 }
+    class { monit: admin => "eivind@uggedal.com",
+                   mailserver => "hostname",
+                   interval => 30 }
 
 Setting up monitoring of processes is done with the `monit::site` resource.
 Note that the name needs to be the same as an init script in `/etc/init.d`:
