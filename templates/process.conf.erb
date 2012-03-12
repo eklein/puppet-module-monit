@@ -1,4 +1,4 @@
-check process <%= name %> <%= if pidfile.any? %> with pidfile <%= pidfile %> <%= elsif matching.any? %> matching "<%= matching %>" <%= end %>
+check process <%= name %> <% if pidfile.any? %> with pidfile <%= pidfile %> <% elsif matching.any? %> matching "<%= matching %>" <% end %>
   start program = "/etc/init.d/<%= name %> start"
   stop program  = "/etc/init.d/<%= name %> stop"
 <% if ip_port.to_i > 0 -%>

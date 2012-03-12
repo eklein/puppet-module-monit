@@ -5,7 +5,7 @@ define monit::monitor($pidfile="",
                       $socket="",
                       $checks=[]) {
 
-  file { "/etc/monit/conf.d/$name.conf":
+  file { "/etc/monit.d/$name":
     ensure => $ensure,
     content => template("monit/process.conf.erb"),
     notify => Service["monit"],
